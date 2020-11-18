@@ -11,7 +11,7 @@
                         @foreach ($questions as $question)
                             <div class="media">
 
-                                <div class="d-flex flex-column">
+                                <div class="d-flex flex-column counters">
                                     <div class="vote">
                                         <strong>
                                             {{ $question->votes }}
