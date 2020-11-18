@@ -19,7 +19,7 @@
                                         {{ str_plural('vote', $question->votes) }}
 
                                     </div>
-                                    <div class="status">
+                                    <div class="status answered-accepted">
                                         <strong>
                                             {{ $question->answers }}
                                         </strong>
