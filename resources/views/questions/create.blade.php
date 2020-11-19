@@ -40,7 +40,7 @@
                                 <label for="question-body">
                                     Explain you question
                                 </label>
-                               
+
                                 <textarea name="body" id="question-body" rows="10" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}">{{ old('body') }}</textarea>
 
                                 @if ($errors->has('body'))
