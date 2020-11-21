@@ -1,0 +1,16 @@
+===========================================================
+===== 02 Changind question/id for question/{slug} ==========
+┌─[bubu@parrot]─[~/fg/laravelqa8]
+└──╼ $php artisan route:list --name=questions
++--------+-----------+---------------------------+-------------------+--------------------------------------------------+------------+
+| Domain | Method    | URI                       | Name              | Action                                           | Middleware |
++--------+-----------+---------------------------+-------------------+--------------------------------------------------+------------+
+|        | GET|HEAD  | questions                 | questions.index   | App\Http\Controllers\QuestionsController@index   | web        |
+|        | POST      | questions                 | questions.store   | App\Http\Controllers\QuestionsController@store   | web        |
+|        | GET|HEAD  | questions/create          | questions.create  | App\Http\Controllers\QuestionsController@create  | web        |
+|        | GET|HEAD  | questions/{question}      | questions.show    | App\Http\Controllers\QuestionsController@show    | web        |
+|        | PUT|PATCH | questions/{question}      | questions.update  | App\Http\Controllers\QuestionsController@update  | web        |
+|        | DELETE    | questions/{question}      | questions.destroy | App\Http\Controllers\QuestionsController@destroy | web        |
+|        | GET|HEAD  | questions/{question}/edit | questions.edit    | App\Http\Controllers\QuestionsController@edit    | web        |
+|        | GET|HEAD  | questions/{slug}          | questions.show    | App\Http\Controllers\QuestionsController@show    | web        |
++--------+-----------+---------------------------+-------------------+--------------------------------------------------+------------+
