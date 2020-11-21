@@ -55,7 +55,7 @@
                                             <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
 
 
-                                            <form method="post" action="{{ route('questions.destroy', $question->id) }}">
+                                            <form class="form-delete" method="post" action="{{ route('questions.destroy', $question->id) }}">
                                                 <!--- about: method('DELETE') and csrf token
                                                 only from Laravel 5.6 we can use the blade directive
                                                 -->

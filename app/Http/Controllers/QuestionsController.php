@@ -91,7 +91,7 @@ class QuestionsController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    
+
     public function destroy(Question $question)
     {
         $question->delete();
