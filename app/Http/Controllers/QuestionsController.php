@@ -63,9 +63,12 @@ class QuestionsController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
+
     public function edit(Question $question)
-    {
-        //
+    {   #-- If Eloquent don't find the id with this (Question $question)
+        #-- eloquent will show a 404 page
+
+        return view("questions.edit", compact('question'));
     }
 
     /**
