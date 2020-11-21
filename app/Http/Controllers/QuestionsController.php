@@ -80,7 +80,9 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->only('title', 'body'));
+        return redirect('/questions')
+            ->with('success', "Your question has been updated.");
     }
 
     /**
