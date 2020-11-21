@@ -54,7 +54,7 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        dd($question->body);
     }
 
     /**
