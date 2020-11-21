@@ -26,6 +26,6 @@
 
 <div class="form-group">
     <button type="submit" class="btn btn-outline-primary btn-lg">
-        Ask this question
+        {{ $buttonText }}
     </button>
 </div>

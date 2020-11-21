@@ -22,7 +22,8 @@
                         <form action="{{ route('questions.store') }}" method="post">
                             @csrf
 
-
+                            @include ("questions._form",
+                            ['buttonText' => "Ask Question"])
 
                         </form>
                     </div>
