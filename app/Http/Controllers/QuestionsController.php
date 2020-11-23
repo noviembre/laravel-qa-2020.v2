@@ -66,7 +66,13 @@ class QuestionsController extends Controller
      */
 
     public function edit(Question $question)
-    {   #-- If Eloquent don't find the id with this (Question $question)
+    {
+        #--- if this questions was no made by current user then abort
+        if (\Gate::denies('update-question', $question)) {
+            abort(403, "Access denied");
+        }
+
+        #-- If Eloquent don't find the id with this (Question $question)
         #-- eloquent will show a 404 page
 
         return view("questions.edit", compact('question'));
@@ -81,6 +87,11 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
+        #--- if this questions was no made by current user then abort
+        if (\Gate::denies('update-question', $question)) {
+            abort(403, "Access denied");
+        }
+        
         $question->update($request->only('title', 'body'));
         return redirect('/questions')
             ->with('success', "Your question has been updated.");
