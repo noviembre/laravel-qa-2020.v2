@@ -14,6 +14,13 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    #============= Authorizing the Question Way 2
+    #================================================
+
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
         $questions = Question::with('user')->latest()->paginate(5);
