@@ -20,4 +20,14 @@ class Answer extends Model
         return \Parsedown::instance()->text($this->body);
     }
 
+    public static function boot()
+    {
+        parent::boot();
+        #--- Every time when an answers is created...
+        #----execute this code
+        static::created(function ($answer) {
+            $answer->question->increment('answers_count');
+        });
+    }
+
 }
