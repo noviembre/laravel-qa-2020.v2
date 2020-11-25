@@ -19,6 +19,15 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
+    #---this avatar does not exists in our model but do in gravatar
+    #--- page: https://en.gravatar.com/site/implement/images/php/
+    public function getAvatarAttribute()
+    {
+        $email = $this->email;
+        $size = 32;
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
