@@ -12,6 +12,11 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
     #================= Title Mutator
     #---for title slug
     public function setTitleAttribute($value)
