@@ -11,15 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        #-----each time that create a fake user...
-        factory(App\User::class, 3)->create()->each(function($user) {
-
-            $user->questions()
+        #----creating random user (3)
+        #----creating for every user (1,5) questions
+        #----creating for every questions (1,5) answers
+        factory(App\User::class, 3)->create()->each(function($u) {
+            $u->questions()
                 ->saveMany(
-                #--- it will create fake questions
                     factory(App\Question::class, rand(1, 5))->make()
-                );
+                )
+                ->each(function ($q) {
+                    $q->answers()->saveMany(factory(App\Answer::class, rand(1, 5))->make());
+                });
         });
 
     }
