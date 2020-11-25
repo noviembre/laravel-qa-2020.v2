@@ -36,6 +36,6 @@ class QuestionPolicy
         #---- if the current user is he creator of the question, and the question that will be removed
         #---- has no answer then the creator of the answer will be authorize to remove
 
-        return $user->id === $question->user_id && $question->answers < 1;
+        return $user->id === $question->user_id && $question->answers_count < 1;
     }
 }

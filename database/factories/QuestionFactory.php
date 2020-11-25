@@ -13,7 +13,7 @@ $factory->define(App\Question::class, function (Faker $faker) {
         #---- el 3, significa el 3 saltos de linea
         'body' => $faker->paragraphs(rand(3, 7), true),
         'views' => rand(0, 10),
-        'answers' => rand(0, 10),
+        'answers_count' => rand(0, 10),
         'votes' => rand(-3, 10)
 
 
