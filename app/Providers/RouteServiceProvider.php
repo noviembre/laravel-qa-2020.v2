@@ -27,7 +27,8 @@ class RouteServiceProvider extends ServiceProvider
         //---- [ for question slug ]
         Route::bind('slug', function($slug) {
             #---- return slug or 404 page
-            return Question::where('slug', $slug)->first() ?? abort(404);
+            return Question::with('answers.user')
+                ->where('slug', $slug)->first() ?? abort(404);
         });
 
         parent::boot();
