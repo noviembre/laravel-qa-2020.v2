@@ -22,6 +22,22 @@
 
                         <hr>
                         <div class="media">
+                            <div class="d-fex flex-column vote-controls">
+                                <a title="This question is useful" class="vote-up">Vote up
+                                    <i class="fas fa-caret-up fa-3x"></i>
+                                </a>
+                                <span class="votes-count">1230</span>
+                                <a title="This question is not useful" class="vote-down off"> Vote off
+                                    <i class="fas fa-caret-down fa-3x"></i>
+                                </a>
+                                <a title="Click to mark as favorite question (Click again to undo)" class="favorite">
+                                    Favorite
+                                    <i class="fas fa-star fa-2x"></i>
+
+                                    <span class="favorites-count">123</span>
+                                </a>
+                            </div>
+
                             <div class="media-body">
                                 {!! $question->body_html !!}
 
