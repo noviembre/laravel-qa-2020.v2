@@ -1,0 +1,21 @@
+01.seing what routes we are going to use
+    - run this code on terminal for better results
+    - this king of route can be use from Laravel 5.6 (I'm not sure if the early version can do this)
+    - this routes are new for us
+
+babo@pc:~/fg/laravel-qa-2020.v2$ php artisan route:list --name=questions
++--------+-----------+--------------------------------------------+---------------------------+--------------------------------------------------+------------+
+| Domain | Method    | URI                                        | Name                      | Action                                           | Middleware |
++--------+-----------+--------------------------------------------+---------------------------+--------------------------------------------------+------------+
+|        | GET|HEAD  | questions                                  | questions.index           | App\Http\Controllers\QuestionsController@index   | web        |
+|        | POST      | questions                                  | questions.store           | App\Http\Controllers\QuestionsController@store   | web,auth   |
+|        | GET|HEAD  | questions/create                           | questions.create          | App\Http\Controllers\QuestionsController@create  | web,auth   |
+|        | PUT|PATCH | questions/{question}                       | questions.update          | App\Http\Controllers\QuestionsController@update  | web,auth   |
+|        | DELETE    | questions/{question}                       | questions.destroy         | App\Http\Controllers\QuestionsController@destroy | web,auth   |
+|        | POST      | questions/{question}/answers               | questions.answers.store   | App\Http\Controllers\AnswersController@store     | web        |
+|        | PUT|PATCH | questions/{question}/answers/{answer}      | questions.answers.update  | App\Http\Controllers\AnswersController@update    | web        |
+|        | DELETE    | questions/{question}/answers/{answer}      | questions.answers.destroy | App\Http\Controllers\AnswersController@destroy   | web        |
+|        | GET|HEAD  | questions/{question}/answers/{answer}/edit | questions.answers.edit    | App\Http\Controllers\AnswersController@edit      | web        |
+|        | GET|HEAD  | questions/{question}/edit                  | questions.edit            | App\Http\Controllers\QuestionsController@edit    | web,auth   |
+|        | GET|HEAD  | questions/{slug}                           | questions.show            | App\Http\Controllers\QuestionsController@show    | web        |
++--------+-----------+--------------------------------------------+---------------------------+--------------------------------------------------+------------+
