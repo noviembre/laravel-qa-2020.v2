@@ -7,6 +7,8 @@
 
                 </div>
                 <hr>
+                @include ('layouts._messages')
+
                 @foreach ($answers as $answer)
                     <div class="media">
 
