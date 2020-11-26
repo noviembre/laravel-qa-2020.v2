@@ -3,10 +3,11 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <h2>{{ $question->answers_count . " " . str_plural('Answer', $question->answers_count) }}</h2>
+                    <h2>{{ $answersCount . " " . str_plural('Answer', $answersCount) }}</h2>
+
                 </div>
                 <hr>
-                @foreach ($question->answers as $answer)
+                @foreach ($answers as $answer)
                     <div class="media">
 
                         <div class="d-fex flex-column vote-controls">

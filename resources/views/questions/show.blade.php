@@ -61,6 +61,10 @@
 
 
 
+        @include ('answers._index', [
+        'answers' => $question->answers,
+        'answersCount' => $question->answers_count,
+    ])
 
     </div>
 @endsection
