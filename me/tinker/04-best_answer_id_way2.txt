@@ -1,0 +1,79 @@
+la forma en que asigna a una rspuesta como mejor respuesta es similar a la que hicimos en el Way 1.
+
+
+***** Deleting an answer that was set as best answer **************
+
+01. for this example You need something.
+    - go to view the questions answer and make sure that question has at least 2 answers made by you.
+    -  check it out any answer id and go to tinker:
+
+
+
+
+
+ A. Find this andswer id and assign to a variable
+        >>> $answer = App\Answer::find(26)
+        => App\Answer {#2983
+             id: 26,
+             question_id: 5,
+             user_id: 1,
+             body: "sera la mejor respuesta",
+             votes_count: 0,
+             created_at: "2019-05-04 10:07:55",
+             updated_at: "2019-05-04 10:07:55",
+           }
+
+  B. then get it question anassign to another variable
+
+        >>> $question = $answer->question
+        => App\Question {#2960
+             id: 5,
+             title: "Vel quibusdam itaque praesentium natus non",
+             slug: "vel-quibusdam-itaque-praesentium-natus-non",
+             body: """
+               Nulla ut quasi cumque quod reiciendis sit dolorem. Qui perspiciatis voluptatum debitisad quae.\n
+               \n
+               Sit officia itaque qui qui et culpa fugiat. Error perspiciatis accusamus quam. facere.\n
+               \n
+               Veritatis corrupti accusamus rem. Est vero nesciunt non. Et eum repellendus qut ex.
+               """,
+             views: 7,
+             answers_count: 2,
+             votes: 3,
+             best_answer_id: null,
+             user_id: 4,
+             created_at: "2019-05-04 10:06:47",
+             updated_at: "2019-05-04 10:07:55",
+           }
+
+   C. now let's set the best_answer_id to 26 and save the changes
+
+        >>> $question->best_answer_id = $answer->id;
+        => 26
+        >>> $question->save();
+        => true
+
+  D. go to the browser reload the page. the answer with id 26 it will set as best answer, then delete this answer an go back to tinker
+
+  E. in tinker find the id of to question, and you'll that the best_answer_id it'll set null.
+        >>> $newquestion = App\Question::find(5)
+        => App\Question {#2976
+             id: 5,
+             title: "Vel quibusdam itaque praesentium natus non",
+             slug: "vel-quibusdam-itaque-praesentium-natus-non",
+             body: """
+               Nulla ut quasi cumque quod reiciendis sit dolorem. Qui perspiciatis.\n
+               \n
+               Sit officia itaque qui qui et culpa fugiat. Error perspiciatis accuui ea facere.\n
+               \n
+               Veritatis corrupti accusamus rem. Est vero nesciunt non. Et eum reptem et ex.
+               """,
+             views: 9,
+             answers_count: 1,
+             votes: 3,
+             best_answer_id: null,
+             user_id: 4,
+             created_at: "2019-05-04 10:06:47",
+             updated_at: "2019-05-04 10:19:41",
+           }
+        >>>
