@@ -17,6 +17,11 @@ class Question extends Model
         return $this->hasMany(Answer::class);
     }
 
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites'); //, 'question_id', 'user_id');
+    }
+
     #================= Title Mutator
     #---for title slug
     public function setTitleAttribute($value)
