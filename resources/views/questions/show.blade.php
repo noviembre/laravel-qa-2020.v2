@@ -34,7 +34,7 @@
 
                                     <i class="fas fa-star fa-2x"></i>
 
-                                    <span class="favorites-count">123</span>
+                                    <span class="favorites-count">{{ $question->favorites_count }}</span>
                                 </a>
                             </div>
 
