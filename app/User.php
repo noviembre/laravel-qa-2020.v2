@@ -22,9 +22,9 @@ class User extends Authenticatable
     public function favorites()
     {
         #----- 'favorites' = table name
-        return $this->belongsToMany(Question::class, 'favorites'); //, 'author_id', 'question_id');
+        return $this->belongsToMany(Question::class, 'favorites')->withTimestamps(); //, 'author_id', 'question_id');
     }
-    
+
 
     #---this avatar does not exists in our model but do in gravatar
     #--- page: https://en.gravatar.com/site/implement/images/php/
