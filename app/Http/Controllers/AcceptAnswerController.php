@@ -15,6 +15,9 @@ class AcceptAnswerController extends Controller
     public function __invoke(Answer $answer)
     {
 
+        #------ authorize the user
+        $this->authorize('accept', $answer);
+        #----- made changes in the db
         $answer->question->acceptBestAnswer($answer);
         return back();
     }

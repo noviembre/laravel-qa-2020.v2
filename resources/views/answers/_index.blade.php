@@ -21,6 +21,7 @@
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
 
+                        @can('accept' , $answer)
                             <!--  ==== Choose as best answers opens ==== -->
                             <a title="Mark this answer as best answer"
                                class="{{ $answer->status }} mt-2"
@@ -35,6 +36,7 @@
                             </form>
 
                             <!--  ==== Choose as best answers closes === -->
+                            @endcan
 
 
                         </div>
