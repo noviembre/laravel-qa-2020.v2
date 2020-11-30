@@ -54,4 +54,12 @@ class Question extends Model
         return \Parsedown::instance()->text($this->body);
     }
 
+    #-- choose an answers as Best answer
+    public function acceptBestAnswer(Answer $answer)
+    {
+        $this->best_answer_id = $answer->id;
+        $this->save();
+    }
+
+
 }
