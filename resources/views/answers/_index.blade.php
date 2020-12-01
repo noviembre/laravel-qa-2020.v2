@@ -13,7 +13,7 @@
                     <div class="media">
 
                         <div class="d-fex flex-column vote-controls">
-                            
+
                             <a title="This answer is useful"
                                class="vote-up {{ Auth::guest() ? 'off' : '' }}"
                                onclick="event.preventDefault(); document.getElementById('up-vote-answer-{{ $answer->id }}').submit();"
