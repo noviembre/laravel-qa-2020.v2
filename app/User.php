@@ -46,6 +46,31 @@ class User extends Authenticatable
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
     }
 
+    public function voteQuestion(Question $question, $vote)
+    {
+        $voteQuestions = $this->voteQuestions();
+        #---if vote exists, show it
+        if ($voteQuestions->where('votable_id', $question->id)->exists()) {
+            $voteQuestions->updateExistingPivot($question, ['vote' => $vote]);
+        }
+        #---otherwise, save it
+        else {
+            $voteQuestions->attach($question, ['vote' => $vote]);
+        }
+        #--- load votes
+        $question->load('votes');
+        #--- count negative votes
+        $downVotes = (int) $question->downVotes()->sum('vote');
+
+        #--- count positive votes
+        #--SUM() : only sums positives and negatives numbers
+        $upVotes = (int) $question->upVotes()->wherePivot('vote', 1)->sum('vote');
+
+        #--- sum both counters
+        $question->votes_count = $upVotes + $downVotes;
+        $question->save();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
