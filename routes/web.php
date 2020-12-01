@@ -37,3 +37,6 @@ Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers
 #----- routes for make it favorite or unfavorite
 Route::post('/questions/{question}/favorites', 'FavoritesController@store')->name('questions.favorite');
 Route::delete('/questions/{question}/favorites', 'FavoritesController@destroy')->name('questions.unfavorite');
+
+#------ making a vote - with single action controller
+Route::post('/questions/{question}/vote', 'VoteQuestionController');
