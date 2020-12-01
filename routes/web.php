@@ -40,3 +40,5 @@ Route::delete('/questions/{question}/favorites', 'FavoritesController@destroy')-
 
 #------ making a vote - with single action controller
 Route::post('/questions/{question}/vote', 'VoteQuestionController');
+#------ answer vote - single action controller
+Route::post('/answers/{answer}/vote', 'VoteAnswerController');
