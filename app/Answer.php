@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     protected $fillable = ['body', 'user_id'];
+
+    public function votes()
+    {
+        return $this->morphToMany(User::class, 'votable');
+    }
     
     public function question()
     {

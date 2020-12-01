@@ -8,6 +8,11 @@ class Question extends Model
 {
     protected $fillable = ['title', 'body'];
 
+    public function votes()
+    {
+        return $this->morphToMany(User::class, 'votable');
+    }
+
     public function user() {
         return $this->belongsTo(User::class);
     }
