@@ -60,7 +60,7 @@ class Question extends Model
     #----- accessor $this->body
     public function getBodyHtmlAttribute()
     {
-        return $this->bodyHtml();
+        return clean($this->bodyHtml());
     }
 
     #-- choose an answers as Best answer
