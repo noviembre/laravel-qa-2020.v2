@@ -57,6 +57,13 @@ class Question extends Model
         return "unanswered";
     }
 
+    #---- cleaning the body column before save/update it in the db
+    #----tutor comment below code.
+//     public function setBodyAttribute($value)
+//     {
+//         $this->attributes['body'] = clean($value);
+//     }
+
     #----- accessor $this->body
     public function getBodyHtmlAttribute()
     {
