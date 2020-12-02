@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    #--- by using this all methods that defines on VotableTrait  will be available here
+    use VotableTrait;
+
     protected $fillable = ['title', 'body'];
 
-    public function votes()
-    {
-        return $this->morphToMany(User::class, 'votable');
-    }
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -85,15 +84,6 @@ class Question extends Model
     public function getFavoritesCountAttribute()
     {
         return $this->favorites->count();
-    }
-
-    public function upVotes()
-    {
-        return $this->votes()->wherePivot('vote', 1);
-    }
-    public function downVotes()
-    {
-        return $this->votes()->wherePivot('vote', -1);
     }
 
 
