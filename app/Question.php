@@ -60,7 +60,7 @@ class Question extends Model
     #----- accessor $this->body
     public function getBodyHtmlAttribute()
     {
-        return \Parsedown::instance()->text($this->body);
+        return $this->bodyHtml();
     }
 
     #-- choose an answers as Best answer
@@ -85,6 +85,21 @@ class Question extends Model
     {
         return $this->favorites->count();
     }
+
+    #------- accessor for body colum - opens ------
+    public function getExcerptAttribute()
+    {
+        return $this->excerpt(250);
+    }
+    public function excerpt($length)
+    {
+        return str_limit(strip_tags($this->bodyHtml()), $length);
+    }
+    private function bodyHtml()
+    {
+        return \Parsedown::instance()->text($this->body);
+    }
+    #------- accessor for body colum - closes ------
 
 
 }
