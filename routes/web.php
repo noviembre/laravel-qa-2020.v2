@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+#--- List all questions on main page
+Route::get('/', 'QuestionsController@index');
 
 Auth::routes();
 
